@@ -1,0 +1,620 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ROYAL EMPORIUM | Premium Mobile Store</title>
+<meta name="description" content="ROYAL EMPORIUM, premium mobile store in Raidopur, Azamgarh. Owner: Yogesh Kumar Singh. Call 6393772003.">
+
+<style>
+:root {
+  --gold: #e8bd63;
+  --gold-light: #ffe8a6;
+  --black: #080808;
+  --panel: #131313;
+  --white: #f8f5ee;
+  --muted: #b4ada0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--black);
+  color: var(--white);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(8,8,8,.96);
+  border-bottom: 1px solid #57421e;
+}
+
+.navbar {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+.brand {
+  color: var(--gold);
+  font-size: 20px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 22px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
+
+.nav-links a:hover {
+  color: var(--gold);
+}
+
+.hero {
+  min-height: 88vh;
+  padding: 70px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at center,
+    #4a3514 0%, #201608 35%, #080808 75%);
+}
+
+.hero::before,
+.hero::after {
+  content: "";
+  position: absolute;
+  width: 330px;
+  height: 330px;
+  border: 1px solid #d3a54c35;
+  border-radius: 50%;
+  animation: orbit 20s linear infinite;
+}
+
+.hero::after {
+  width: 480px;
+  height: 480px;
+  animation-direction: reverse;
+}
+
+.hero-content {
+  max-width: 950px;
+  position: relative;
+  z-index: 1;
+}
+
+.kicker {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 5px;
+  margin-bottom: 26px;
+}
+
+h1 {
+  font-size: clamp(43px, 10vw, 100px);
+  line-height: 1.03;
+  letter-spacing: 3px;
+  font-weight: 900;
+  color: var(--gold-light);
+  background: linear-gradient(
+    110deg, #fff2c4, #d3a247, #fff0b6, #b27e26
+  );
+  background-size: 250% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 6s linear infinite;
+}
+
+.hero-subtitle {
+  margin-top: 25px;
+  color: #ded5c5;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+.opening-label {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 13px 25px;
+  border: 1px solid var(--gold);
+  color: var(--gold-light);
+  font-size: 12px;
+  letter-spacing: 4px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 32px;
+}
+
+.btn {
+  display: inline-block;
+  padding: 15px 24px;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-align: center;
+  transition: .3s;
+}
+
+.btn-gold {
+  color: #171006;
+  background: linear-gradient(120deg, #ffe7a4, #c49336);
+}
+
+.btn-outline {
+  color: var(--gold-light);
+  border: 1px solid var(--gold);
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px #d9a74430;
+}
+
+section {
+  padding: 80px 6%;
+  scroll-margin-top: 80px;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.section-heading {
+  text-align: center;
+  font-size: clamp(28px, 5vw, 44px);
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.section-intro {
+  max-width: 720px;
+  margin: 0 auto 40px;
+  color: var(--muted);
+  text-align: center;
+  line-height: 1.9;
+}
+
+.products {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+.product-card {
+  padding: 34px 22px;
+  text-align: center;
+  border: 1px solid #51401f;
+  background: linear-gradient(145deg, #1b1913, #0d0d0d);
+  transition: .3s;
+}
+
+.product-card:hover {
+  transform: translateY(-7px);
+  border-color: var(--gold);
+  box-shadow: 0 10px 30px #000;
+}
+
+.product-number {
+  font-size: 34px;
+  color: #a27c35;
+  margin-bottom: 20px;
+}
+
+.product-card h3 {
+  color: var(--gold-light);
+  margin-bottom: 15px;
+  font-size: 19px;
+}
+
+.product-card p {
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.opening {
+  background: radial-gradient(ellipse at center, #34240d, #0b0b0b 75%);
+  border-top: 1px solid #51401f;
+  border-bottom: 1px solid #51401f;
+}
+
+.opening-box {
+  max-width: 850px;
+  margin: auto;
+  padding: 48px 24px;
+  text-align: center;
+  border: 1px solid var(--gold);
+  position: relative;
+}
+
+.opening-box h2 {
+  color: var(--gold-light);
+  font-size: clamp(30px, 7vw, 56px);
+  margin: 22px 0;
+}
+
+.opening-box p {
+  position: relative;
+  color: #ded5c5;
+  line-height: 2;
+}
+
+.owner {
+  background: var(--panel);
+  text-align: center;
+}
+
+.owner-name {
+  margin-top: 25px;
+  font-size: clamp(21px, 4vw, 32px);
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--gold-light);
+}
+
+.owner-role {
+  color: var(--muted);
+  font-size: 12px;
+  letter-spacing: 3px;
+  margin-top: 12px;
+}
+
+.contact {
+  text-align: center;
+}
+
+.contact-details {
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 28px 20px;
+  border: 1px solid #51401f;
+  background: linear-gradient(145deg, #17150f, #0b0b0b);
+}
+
+.contact-details p {
+  line-height: 1.9;
+  margin: 15px 0;
+  color: #ddd5c7;
+  overflow-wrap: anywhere;
+}
+
+.contact-details strong {
+  color: var(--gold);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.contact-details a {
+  color: var(--gold-light);
+}
+
+footer {
+  padding: 28px 15px;
+  text-align: center;
+  border-top: 1px solid #51401f;
+  color: #999;
+  font-size: 12px;
+  line-height: 2.1;
+}
+
+footer strong {
+  color: var(--gold);
+  letter-spacing: 3px;
+}
+
+@keyframes shine {
+  0% { background-position: 0% center; }
+  100% { background-position: 250% center; }
+}
+
+@keyframes orbit {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@media(max-width: 700px) {
+  .navbar {
+    padding: 17px 4%;
+  }
+
+  .brand {
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  .nav-links {
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .hero {
+    min-height: 78vh;
+  }
+
+  .kicker {
+    font-size: 10px;
+    letter-spacing: 3px;
+  }
+
+  .hero-subtitle {
+    font-size: 14px;
+  }
+
+  section {
+    padding: 60px 5%;
+  }
+
+  .products {
+    grid-template-columns: 1fr;
+  }
+
+  .opening-box {
+    padding: 38px 16px;
+  }
+
+  .btn {
+    padding: 14px 17px;
+  }
+}
+
+@media(max-width: 360px) {
+  .navbar {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .nav-links {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation: none !important;
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <nav class="navbar">
+    <a href="#home" class="brand">ROYAL EMPORIUM</a>
+
+    <div class="nav-links">
+      <a href="#products">PRODUCTS</a>
+      <a href="#opening">OPENING</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </nav>
+</header>
+
+<main>
+
+  <section class="hero" id="home">
+    <div class="hero-content">
+
+      <p class="kicker">PREMIUM SMARTPHONE DESTINATION</p>
+
+      <h1>ROYAL<br>EMPORIUM</h1>
+
+      <p class="hero-subtitle">
+        Your Next Smartphone Awaits.<br>
+      </p>
+
+      <div class="opening-label">
+        GRAND OPENING
+      </div>
+
+      <div class="buttons">
+        <a href="#products" class="btn btn-gold">
+          EXPLORE OUR STORE
+        </a>
+
+        <a href="#contact" class="btn btn-outline">
+          CONTACT US
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="products">
+    <div class="container">
+
+      <h2 class="section-heading">OUR MOBILE STORE</h2>
+
+      <p class="section-intro">
+        Discover smartphones, mobile accessories and
+        helpful customer service at ROYAL EMPORIUM
+      </p>
+
+      <div class="products">
+
+        <article class="product-card">
+          <div class="product-number">01</div>
+          <h3>SMARTPHONES</h3>
+          <p>
+            Explore smartphones from popular brands
+            and find the right device for your needs.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-number">02</div>
+          <h3>MOBILE ACCESSORIES</h3>
+          <p>
+            Discover mobile covers, chargers, cables,
+            screen protectors and more.
+          </p>
+        </article>
+
+        <article class="product-card">
+          <div class="product-number">03</div>
+          <h3>MOBILE SERVICES</h3>
+          <p>
+            Visit our store to enquire about available
+            mobile services and customer assistance.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="opening" id="opening">
+    <div class="opening-box">
+
+      <p class="kicker">A NEW BEGINNING</p>
+
+      <h2>GRAND OPENING</h2>
+
+      <p>
+        A New Name. A New Experience. A Royal Welcome.<br>
+        ROYAL EMPORIUM<br>
+      </p>
+
+      <div class="buttons">
+        <a href="#contact" class="btn btn-gold">
+          VISIT OUR STORE
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="owner">
+    <div class="container">
+
+      <h2 class="section-heading">MEET THE OWNER</h2>
+
+      <p class="section-intro">
+        Built on trust, quality and a commitment
+        to customer satisfaction.
+      </p>
+
+      <div class="owner-name">YOGESH KUMAR SINGH</div>
+
+      <div class="owner-role">
+        OWNER · ROYAL EMPORIUM
+      </div>
+
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+
+      <h2 class="section-heading">VISIT OUR STORE</h2>
+
+      <p class="section-intro">
+        We look forward to welcoming you to
+        ROYAL EMPORIUM.
+      </p>
+
+      <div class="contact-details">
+
+        <p>
+          <strong>STORE NAME</strong><br>
+          ROYAL EMPORIUM
+        </p>
+
+        <p>
+          <strong>OWNER</strong><br>
+          YOGESH KUMAR SINGH
+        </p>
+
+        <p>
+          <strong>ADDRESS</strong><br>
+          In Front of Hotel Grandsr,<br>
+          Raidopur, Azamgarh,<br>
+          Uttar Pradesh, India
+        </p>
+
+        <p>
+          <strong>PHONE NUMBER</strong><br>
+          <a href="tel:+916393772003">6393772003</a>
+        </p>
+
+      </div>
+
+      <div class="buttons">
+
+        <a class="btn btn-gold"
+           href="tel:+916393772003">
+          CALL NOW
+        </a>
+
+        <a class="btn btn-outline"
+           href="https://wa.me/916393772003"
+           target="_blank"
+           rel="noopener noreferrer">
+          WHATSAPP US
+        </a>
+
+        <a class="btn btn-outline"
+           href="https://www.google.com/maps/search/?api=1&query=Hotel+Grandsr+Raidopur+Azamgarh+Uttar+Pradesh"
+           target="_blank"
+           rel="noopener noreferrer">
+          FIND OUR STORE
+        </a>
+
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <strong>ROYAL EMPORIUM</strong>
+  <p>Premium Smartphones. Personal Service. Trusted Experience.</p>
+  <p>Owner: YOGESH KUMAR SINGH</p>
+  <p>Raidopur, Azamgarh, Uttar Pradesh</p>
+  <p>Phone: 6393772003</p>
+  <p>Copyright &copy; 2026 ROYAL EMPORIUM. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
